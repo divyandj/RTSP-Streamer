@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">EasyPlayer-RTSP</string>
+    <string name="app_flavor">basic</string>
+
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_splash">Splash</string>
+
+    <string name="about_info">EasyPlayer-RTSP Android The player is a complete RTSP streaming media player project developed and maintained by Dilaton. Video encoding supports H.264, H.265, MPEG4, MJPEG, audio supports G711A, G711U, G726, AAC. It supports RTSP over TCP/UDP protocol and supports hard decoding. It is an excellent set of security streaming media platform playback components! EasyPlayer-RTSP Android version has gone through many years of development and iteration, and has become very stable and complete. Its functions include: live broadcast, video recording, and screenshots. It supports instruction sets including armv7a, armv8a, and x86. It should be said that it is the RTSP player with the strongest functionality, stability, and integrity on the market!</string>
+</resources>
