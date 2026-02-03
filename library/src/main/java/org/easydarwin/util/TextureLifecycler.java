@@ -1,10 +1,10 @@
 package org.easydarwin.util;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.LifecycleRegistry;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleRegistry;
+import androidx.annotation.NonNull;
 import android.graphics.SurfaceTexture;
-import android.support.annotation.NonNull;
 import android.view.TextureView;
 
 import java.lang.ref.WeakReference;

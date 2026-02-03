@@ -1,10 +1,10 @@
 package org.easydarwin.video;
 
 import android.annotation.TargetApi;
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleObserver;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import android.content.Context;
 import android.media.AudioFormat;
 import android.media.AudioManager;

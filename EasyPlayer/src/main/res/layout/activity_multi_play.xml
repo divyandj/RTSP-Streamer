@@ -1,11 +1,11 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_white">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="66dp"
@@ -36,9 +36,9 @@
                 android:layout_marginBottom="0dp"
                 android:src="@drawable/new_nav_back" />
         </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
-    <android.support.v7.widget.GridLayout
+    <androidx.gridlayout.widget.GridLayout
         android:id="@+id/fragment_container_grid"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -85,5 +85,5 @@
                 android:onClick="onAddVideoSource"
                 android:src="@drawable/ic_action_add" />
         </FrameLayout>
-    </android.support.v7.widget.GridLayout>
-</android.support.constraint.ConstraintLayout>
+    </androidx.gridlayout.widget.GridLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

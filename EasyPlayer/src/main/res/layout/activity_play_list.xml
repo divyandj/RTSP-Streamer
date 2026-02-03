@@ -12,7 +12,7 @@
         android:background="#ffffff"
         tools:context="org.easydarwin.easyplayer.activity.PlayListActivity">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="66dp"
@@ -45,7 +45,7 @@
 
             </RelativeLayout>
 
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
         <LinearLayout
             android:id="@+id/bottom_ll"
@@ -98,7 +98,7 @@
 
         </LinearLayout>
 
-        <android.support.v4.widget.SwipeRefreshLayout
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/pull_to_refresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -109,13 +109,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </FrameLayout>
 
-        </android.support.v4.widget.SwipeRefreshLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </RelativeLayout>
 

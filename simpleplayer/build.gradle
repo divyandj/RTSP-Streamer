@@ -5,7 +5,7 @@ android {
 
     defaultConfig {
         applicationId "org.easydarwin.easyplayer"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
@@ -23,6 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'org.easydarwin.player.simpleplayer'
 
 }
 

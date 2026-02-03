@@ -2,7 +2,7 @@ package org.easydarwin.player;
 
 import android.graphics.SurfaceTexture;
 import android.net.Uri;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
