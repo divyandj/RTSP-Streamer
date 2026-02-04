@@ -49,6 +49,9 @@ import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
  */
 public class PlayActivity extends AppCompatActivity implements PlayFragment.OnDoubleTapListener, PlayFragment.SEIDataListener {
 
+    // Add these with your other private variables
+    private org.easydarwin.easyplayer.views.OverlayCanvasView mOverlayView;
+    private org.easydarwin.easyplayer.util.MavlinkTcpClient mMavClient;
     private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 0x111;
 
     private PlayFragment mRenderFragment;
@@ -191,6 +194,11 @@ public class PlayActivity extends AppCompatActivity implements PlayFragment.OnDo
 
     @Override
     protected void onDestroy() {
+
+        if (mMavClient != null) {
+            mMavClient.stop();
+        }
+
         releaseSoundPool();
         super.onDestroy();
     }
@@ -402,11 +410,32 @@ public class PlayActivity extends AppCompatActivity implements PlayFragment.OnDo
 
         mBinding.liveVideoBarTakePicture.setEnabled(false);
         mBinding.liveVideoBarRecord.setEnabled(false);
+
+        // 1. Initialize the Mavlink Client if it doesn't exist
+        if (mMavClient == null) {
+            mMavClient = new org.easydarwin.easyplayer.util.MavlinkTcpClient(new org.easydarwin.easyplayer.util.MavlinkTcpClient.TelemetryListener() {
+                @Override
+                public void onTelemetryUpdate(org.easydarwin.easyplayer.data.TelemetryData data) {
+                    // 2. Pass data to the Fragment to update the HUD
+                    if (mRenderFragment != null) {
+                        mRenderFragment.updateTelemetry(data);
+                    }
+                }
+            });
+        }
+
+        // 3. Start the TCP Connection
+        // REPLACE "192.168.1.50" WITH YOUR DRONE'S IP ADDRESS
+        mMavClient.start("192.168.29.163", 5760);
     }
 
     private void onPlayStop() {
         mBinding.liveVideoBarEnableAudio.setEnabled(false);
         mHandler.removeCallbacks(mTimerRunnable);
+
+        if (mMavClient != null) {
+            mMavClient.stop();
+        }
     }
 
     /* ====================== 按钮事件 ====================== */

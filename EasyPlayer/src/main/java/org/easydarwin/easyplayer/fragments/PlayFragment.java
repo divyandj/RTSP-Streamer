@@ -56,6 +56,9 @@ import java.util.UUID;
 
 import uk.copywitchshame.senab.photoview.gestures.PhotoViewAttacher;
 
+import org.easydarwin.easyplayer.views.OverlayCanvasView;
+import org.easydarwin.easyplayer.data.TelemetryData;
+
 /**
  * 播放器Fragment
  */
@@ -102,6 +105,9 @@ public class PlayFragment extends Fragment implements TextureView.SurfaceTexture
     private ImageView mTakePictureThumb;// 显示抓拍的图片
     protected TextureView mSurfaceView;
     private SurfaceTexture mSurfaceTexture;
+
+    private OverlayCanvasView mOverlayView;
+
     protected ImageView cover;
 
     private MediaScannerConnection mScanner;
@@ -149,6 +155,21 @@ public class PlayFragment extends Fragment implements TextureView.SurfaceTexture
         }
     }
 
+    /**
+     * Updates the HUD overlay with new telemetry data.
+     * Safe to call from any thread (handles UI thread switching).
+     */
+    public void updateTelemetry(final TelemetryData data) {
+        if (mOverlayView != null) {
+            mOverlayView.post(new Runnable() {
+                @Override
+                public void run() {
+                    mOverlayView.updateTelemetry(data);
+                }
+            });
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_play, container, false);
@@ -168,6 +189,9 @@ public class PlayFragment extends Fragment implements TextureView.SurfaceTexture
         mSurfaceView = (TextureView) view.findViewById(R.id.surface_view);
         mSurfaceView.setOpaque(false);
         mSurfaceView.setSurfaceTextureListener(this);
+
+        // ADD THIS LINE:
+        mOverlayView = (OverlayCanvasView) view.findViewById(R.id.overlay_canvas);
 
         mAngleView = (AngleView) getView().findViewById(R.id.render_angle_view);
         mRenderCover = (ImageView) getView().findViewById(R.id.surface_cover);
